@@ -1,0 +1,31 @@
+/* ============================
+   main.scss — Archivo raíz SASS
+   Cines Dino Mall
+   ============================ */
+
+/* ---------------------------------
+   1) Configuración global
+---------------------------------- */
+@import "variables";
+@import "mixins";
+
+/* ---------------------------------
+   2) Estilos base y estructura
+---------------------------------- */
+@import "base";      // body, tipografías, secciones, footer
+@import "layout";    // banners, contenedores globales
+
+/* ---------------------------------
+   3) Componentes grandes (secciones)
+---------------------------------- */
+@import "header";     // navbar + mobile menu
+@import "cartelera";  // cartelera y estrenos
+@import "complejos";  // complejos
+@import "promos";     // promos y hero de promos
+@import "forms";      // contacto + festejá
+@import "faq";        // ayuda / FAQ
+
+/* ---------------------------------
+   4) Utilidades / Componentes chicos
+---------------------------------- */
+@import "buttons";    // botones: volver, bases, enviar

@@ -1,0 +1,173 @@
+/* ============================
+   CARTELERA / PRÓXIMOS ESTRENOS
+   ============================ */
+
+#cartelera h1 {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+#cartelera h2,
+#estrenos h2 {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+#cartelera h2 {
+  margin-top: 1rem;
+}
+
+@media (max-width: 500px) {
+  #cartelera h2 {
+    margin-top: 0.5rem;
+  }
+}
+
+/* GRID CARTELERA */
+.grid-cartelera {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 900px) {
+  .grid-cartelera {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .grid-cartelera {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* GRID ESTRENOS */
+.grid-estrenos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 500px) {
+  .grid-estrenos {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* TARJETAS PELÍCULAS */
+.pelicula {
+  background-color: #3A1660;
+  padding: 10px;
+  border-radius: 12px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pelicula img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.6);
+}
+
+.pelicula h3 {
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.00em;
+  color: #FFEB3B;
+  text-align: left;
+  font-weight: 700;  // ← NEGRITA COMO “ESTRENOS”
+
+}
+
+.pelicula:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 26px rgba(0, 0, 0, 0.7);
+}
+
+/* Etiquetas de estreno / fecha */
+.etiqueta-estreno {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #FFCC00;
+  color: #2E005C;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 8px 0 8px 0;
+}
+
+.etiqueta-estreno.fecha {
+  top: 8px;
+}
+
+/* === SELECTOR DE COMPLEJO (mismo estilo, responsive) === */
+
+.select-complejo {
+  display: flex;
+  justify-content: flex-start;  // desktop a la izquierda
+  margin: 40px 0 30px;
+}
+
+.select-complejo select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background-color: $violeta-dino;
+  border: 3px solid $amarillo-dino;
+  color: $blanco;
+
+  padding: 12px 22px;
+  border-radius: $radius-md;
+  font-family: $font-primary;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+
+  min-width: 280px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+
+  background-image: url("data:image/svg+xml;utf8,<svg fill='%23fdd835' height='18' width='18' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5' stroke='%23fdd835' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 18px center;
+  background-size: 14px 14px;
+
+  transition: 0.25s ease;
+}
+
+.select-complejo select:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.30);
+  transform: translateY(-2px);
+}
+
+/* 📱 MOBILE: centrado y con aire lateral */
+@media (max-width: 600px) {
+  .select-complejo {
+    justify-content: center;
+    margin: 24px 0 16px;
+    padding: 0 1.5rem;        // margen lateral para que no pegue al borde
+  }
+
+  .select-complejo select {
+    width: 100%;
+    min-width: 0;
+    max-width: 320px;
+    font-size: 0.9rem;
+    padding: 9px 18px;
+    background-position: right 14px center;
+  }
+}
+
+/* 💻 DESKTOP GRANDE: un poco más power */
+@media (min-width: 992px) {
+  .select-complejo select {
+    min-width: 320px;
+    font-size: 1.05rem;
+    padding: 14px 26px;
+  }
+}

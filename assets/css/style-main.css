@@ -1,0 +1,1149 @@
+@charset "UTF-8";
+/* ============================
+   main.scss — Archivo raíz SASS
+   Cines Dino Mall
+   ============================ */
+/* ---------------------------------
+   1) Configuración global
+---------------------------------- */
+/* ============================
+   _variables.scss — Variables globales
+   Proyecto: Cines Dino Mall
+   ============================ */
+/* Colores principales */
+/* Derivados / compatibilidad con código viejo */
+/* Sombras */
+/* Tipografías */
+/* Radios */
+/* ============================
+   _mixins.scss — Mixins globales
+   Cines Dino Mall
+   ============================ */
+/* ---------------------------------
+   📱 Mixin para media queries
+   Uso:
+      @include respond(768px) {
+        ...estilos...
+      }
+---------------------------------- */
+/* ---------------------------------
+   🔘 Mixin para botón tipo “pill”
+   — Bordes redondeados, uppercase,
+     outline amarillo Dino Mall, hover animado —
+   Uso:
+      @include pill-button(#FFEB3B, #2E005C);
+---------------------------------- */
+/* ---------------------------------
+   🎯 Mixin de centrado absoluto
+   Uso:
+      .elemento {
+        @include absolute-center;
+      }
+---------------------------------- */
+/* ---------------------------------
+   🟪 Mixin de sombra Dino Mall
+   Uso:
+      @include dino-shadow;
+---------------------------------- */
+/* ---------------------------------
+   🟩 Mixin para fondo blur (vidrio)
+   Uso:
+      @include glass-bg(0.25);
+---------------------------------- */
+/* ---------------------------------
+   2) Estilos base y estructura
+---------------------------------- */
+/* ============================
+   BASE — Estilos globales
+   ============================ */
+/* BODY */
+body {
+  background-color: #4A007E;
+  color: #FFFFFF;
+  font-family: "Nimbus Sans", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Evitar scroll horizontal */
+}
+
+/* CONTENEDOR PRINCIPAL */
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-bottom: 3rem;
+}
+
+/* SECCIONES GENERALES */
+section {
+  padding: 2rem;
+  text-align: center;
+}
+
+/* FOOTER */
+footer {
+  background-color: #2E005C;
+  padding: 0.5rem;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* Link destacado amarillo Dino Mall: se aplica en TODA la web */
+a.amarillo-link {
+  color: #FFCC00 !important;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease-in-out;
+}
+
+a.amarillo-link:hover {
+  color: #FFE373 !important;
+}
+
+/* ===== BANNER GENÉRICO ===== */
+#banner {
+  overflow: hidden;
+}
+
+#banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-width: 100%;
+}
+
+/* ---------------------------------
+   3) Componentes grandes (secciones)
+---------------------------------- */
+/* ============================
+   HEADER + NAVBAR
+   ============================ */
+header {
+  background-color: #2E005C; /* Violeta Dino Mall */
+  padding: 10px 0;
+  font-family: "Poppins", sans-serif; /* tipografía redondita */
+  position: relative;
+  z-index: 1000;
+}
+
+.top-bar {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* LOGO IZQUIERDA */
+.logo-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-cines {
+  background-color: #FFCC00; /* amarillo */
+  color: #2E005C; /* violeta */
+  font-weight: 800;
+  padding: 6px 10px;
+  border-radius: 4px;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+}
+
+.logo-dino {
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+}
+
+/* MENÚ PRINCIPAL (DESKTOP) */
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* Hover y activo */
+.main-nav a:hover,
+.main-nav a.active {
+  color: #FFEB3B; /* amarillo Dino Mall */
+  text-decoration: underline;
+}
+
+/* BOTÓN HAMBURGUESA (mobile) */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  width: 32px;
+  height: 24px;
+  position: relative;
+}
+
+/* Líneas del icono */
+.nav-toggle span {
+  position: absolute;
+  left: 4px;
+  right: 4px;
+  height: 3px;
+  border-radius: 999px;
+  background-color: #FFFFFF;
+  transition: transform 0.25s ease, opacity 0.25s ease, top 0.25s ease, bottom 0.25s ease;
+}
+
+/* 3 líneas bien separadas */
+.nav-toggle span:nth-child(1) {
+  top: 4px;
+}
+
+.nav-toggle span:nth-child(2) {
+  top: 10px;
+}
+
+.nav-toggle span:nth-child(3) {
+  bottom: 4px;
+}
+
+/* Mostrar solo en mobile */
+@media (max-width: 900px) {
+  .nav-toggle {
+    display: inline-block;
+    margin-left: auto;
+  }
+}
+/* ============================
+   RESPONSIVE NAV
+   ============================ */
+@media (max-width: 768px) {
+  /* Mostrar hamburguesa */
+  .nav-toggle {
+    display: flex;
+  }
+  /* Menú oculto por defecto en mobile */
+  .main-nav {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #2E005C;
+    width: 100%;
+    display: none;
+  }
+  .main-nav ul {
+    flex-direction: column;
+    padding: 0.75rem 1.5rem;
+    gap: 0.5rem;
+  }
+  /* Cuando JS agrega .is-open se muestra */
+  .main-nav.is-open {
+    display: block;
+  }
+  /* Ajustes extra de top-bar en mobile */
+  header .top-bar {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding: 0.75rem 1rem;
+  }
+  header .top-bar .nav-toggle {
+    display: inline-block;
+    margin-left: auto;
+  }
+  header .top-bar .main-nav {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+  header .top-bar .main-nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+  header .top-bar .main-nav a {
+    font-size: 0.9rem;
+  }
+}
+/* ============================
+   CARTELERA / PRÓXIMOS ESTRENOS
+   ============================ */
+#cartelera h1 {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+#cartelera h2,
+#estrenos h2 {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+#cartelera h2 {
+  margin-top: 1rem;
+}
+
+@media (max-width: 500px) {
+  #cartelera h2 {
+    margin-top: 0.5rem;
+  }
+}
+/* GRID CARTELERA */
+.grid-cartelera {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 900px) {
+  .grid-cartelera {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 500px) {
+  .grid-cartelera {
+    grid-template-columns: 1fr;
+  }
+}
+/* GRID ESTRENOS */
+.grid-estrenos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 500px) {
+  .grid-estrenos {
+    grid-template-columns: 1fr;
+  }
+}
+/* TARJETAS PELÍCULAS */
+.pelicula {
+  background-color: #3A1660;
+  padding: 10px;
+  border-radius: 12px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pelicula img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.6);
+}
+
+.pelicula h3 {
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0em;
+  color: #FFEB3B;
+  text-align: left;
+  font-weight: 700;
+}
+
+.pelicula:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 26px rgba(0, 0, 0, 0.7);
+}
+
+/* Etiquetas de estreno / fecha */
+.etiqueta-estreno {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #FFCC00;
+  color: #2E005C;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 8px 0 8px 0;
+}
+
+.etiqueta-estreno.fecha {
+  top: 8px;
+}
+
+/* === SELECTOR DE COMPLEJO (mismo estilo, responsive) === */
+.select-complejo {
+  display: flex;
+  justify-content: flex-start;
+  margin: 40px 0 30px;
+}
+
+.select-complejo select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #2E005C;
+  border: 3px solid #FFCC00;
+  color: #FFFFFF;
+  padding: 12px 22px;
+  border-radius: 10px;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  min-width: 280px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  background-image: url("data:image/svg+xml;utf8,<svg fill='%23fdd835' height='18' width='18' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5' stroke='%23fdd835' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 18px center;
+  background-size: 14px 14px;
+  transition: 0.25s ease;
+}
+
+.select-complejo select:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+/* 📱 MOBILE: centrado y con aire lateral */
+@media (max-width: 600px) {
+  .select-complejo {
+    justify-content: center;
+    margin: 24px 0 16px;
+    padding: 0 1.5rem;
+  }
+  .select-complejo select {
+    width: 100%;
+    min-width: 0;
+    max-width: 320px;
+    font-size: 0.9rem;
+    padding: 9px 18px;
+    background-position: right 14px center;
+  }
+}
+/* 💻 DESKTOP GRANDE: un poco más power */
+@media (min-width: 992px) {
+  .select-complejo select {
+    min-width: 320px;
+    font-size: 1.05rem;
+    padding: 14px 26px;
+  }
+}
+/* ============================
+   COMPLEJOS
+   ============================ */
+#complejos-intro {
+  max-width: 1100px;
+  margin: 20px auto 0;
+  text-align: left;
+}
+
+#complejos-intro h2 {
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+#complejos-intro .amarillo {
+  color: #FFCC00;
+}
+
+#complejos-intro p {
+  line-height: 1.5;
+}
+
+/* GRID CONTENEDOR */
+#complejos-grid {
+  max-width: 1100px;
+  margin: 10px auto 40px;
+  text-align: left;
+}
+
+.grid-complejos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+.complejo-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+}
+
+.complejo-item img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay oscuro encima de la imagen */
+.complejo-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(40, 0, 75, 0.6);
+  z-index: 1;
+}
+
+/* Texto amarillo centrado */
+.complejo-item h3 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #FFCC00;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  text-align: center;
+  z-index: 2;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .grid-complejos {
+    grid-template-columns: 1fr;
+  }
+  .complejo-item img {
+    height: 220px;
+  }
+}
+/* ============================
+   PROMOCIONES
+   ============================ */
+#promos-intro {
+  max-width: 1100px;
+  margin: 20px auto 1.5rem;
+  text-align: left;
+}
+
+.titulo-promos {
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0em;
+  margin-bottom: 0.5rem;
+}
+
+/* CONTENEDOR PROMOS */
+#promos-grid {
+  max-width: 1100px;
+  margin: 10px auto 40px;
+  padding-bottom: 3rem;
+}
+
+/* GRID PROMOS */
+.grid-promos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+}
+
+/* TARJETA PROMO */
+.promo-item {
+  background: rgba(0, 0, 0, 0.35);
+  padding: 1.2rem 1rem 1.6rem;
+  border-radius: 18px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 260px;
+  margin: 0 auto;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.45);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.promo-item img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 12px;
+  margin-bottom: 0.9rem;
+}
+
+/* hover */
+.promo-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* HERO PROMOS */
+.banner-promos {
+  position: relative;
+  max-height: 360px;
+  overflow: hidden;
+  border-radius: 18px;
+  margin: 1.5rem auto 2.5rem;
+}
+
+.banner-promos img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.6) contrast(1.05);
+}
+
+/* Texto sobre banner */
+.banner-promos-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 3rem 4rem;
+  max-width: 700px;
+  color: #FFFFFF;
+}
+
+.badge-promos {
+  display: inline-block;
+  background: #FFEB3B;
+  color: #2E005C;
+  padding: 0.3rem 1rem;
+  border-radius: 99px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0em;
+  margin-bottom: 0.5rem;
+}
+
+.banner-promos-text h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: 0em;
+  margin: 0.4rem 0 0.8rem;
+  text-transform: uppercase;
+  color: #FFEB3B;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+}
+
+.banner-promos-text p {
+  font-size: 1.05rem;
+  line-height: 1.45;
+  max-width: 540px;
+  color: #FFFFFF;
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.6);
+}
+
+/* RESPONSIVE PROMOS */
+@media (max-width: 900px) {
+  .grid-promos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .grid-promos {
+    grid-template-columns: 1fr;
+  }
+}
+/* PROMO DESTACADA 2x1 */
+.promo-destacada {
+  position: relative;
+  max-width: 1100px;
+  margin: 24px auto 40px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.promo-destacada img {
+  display: block;
+  width: 100%;
+  border-radius: inherit;
+}
+
+/* Texto por encima de la imagen (desktop) */
+.promo-destacada-texto {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.5rem;
+  color: #ffffff;
+}
+
+.promo-destacada-texto h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1.1;
+  color: #ffeb3b;
+  margin-bottom: 0.75rem;
+}
+
+.promo-destacada-texto p {
+  max-width: 480px;
+  font-size: 0.95rem;
+}
+
+/* 📱 MOBILE: que NO quede superpuesto raro */
+@media (max-width: 600px) {
+  .promo-destacada {
+    margin: 16px auto 28px;
+  }
+  .promo-destacada-texto {
+    position: static;
+    padding: 1rem 1.25rem 1.5rem;
+    background: transparent;
+  }
+  .promo-destacada-texto h2 {
+    font-size: 1.6rem;
+  }
+  .promo-destacada-texto p {
+    font-size: 0.9rem;
+  }
+}
+.form-page {
+  max-width: 1100px;
+  margin: 40px auto;
+  text-align: center;
+  padding: 2rem 0;
+}
+.form-page h1, .form-page h2 {
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+}
+.form-page .form-lead {
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+/* CONTENEDOR FLEX */
+.form-layout {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: left;
+}
+
+/* FORMULARIO */
+.form-festeja, .form-contacto {
+  flex: 2;
+  min-width: 300px;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 1.8rem;
+  border-radius: 12px;
+}
+
+.form-festeja label,
+.form-contacto label {
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.form-festeja input,
+.form-festeja select,
+.form-festeja textarea,
+.form-contacto input,
+.form-contacto select,
+.form-contacto textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(0, 0, 0, 0.15);
+  color: white;
+  font-family: "Poppins";
+  font-size: 14px;
+}
+
+textarea {
+  height: 120px;
+  resize: vertical;
+}
+
+.btn-enviar {
+  margin-top: 20px;
+  padding: 12px 26px;
+  border-radius: 20px;
+  background-color: #FFCC00;
+  color: #2E005C;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-enviar:hover {
+  background-color: #FFB700;
+}
+
+/* COLUMNA DERECHA */
+.contacto-datos {
+  flex: 1;
+  min-width: 250px;
+  background-color: #3A1660;
+  padding: 1rem;
+  border-radius: 12px;
+  font-size: 14px;
+}
+
+/* === AJUSTE GENERAL FORMULARIOS === */
+.form-page {
+  max-width: 1000px;
+  margin: 40px auto;
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+}
+
+.form-page h1,
+.form-page h2 {
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+}
+
+.form-lead {
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+/* CONTENEDOR FLEX: FORM + ASIDE */
+.form-layout {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: left;
+}
+
+/* CARD DEL FORMULARIO */
+.form-festeja,
+.form-contacto {
+  flex: 2;
+  min-width: 320px;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 1.75rem 1.5rem 2rem;
+  border-radius: 12px;
+}
+
+/* LABEL + INPUT EN COLUMNA */
+.form-festeja label,
+.form-contacto label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  margin-bottom: 14px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* CAMPOS DE TEXTO */
+.form-festeja input,
+.form-festeja select,
+.form-festeja textarea,
+.form-contacto input,
+.form-contacto select,
+.form-contacto textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+}
+
+.form-festeja textarea,
+.form-contacto textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+/* BOTÓN */
+.btn-enviar {
+  margin-top: 18px;
+  padding: 10px 24px;
+  border-radius: 20px;
+  background-color: #FFCC00;
+  color: #2E005C;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-enviar:hover {
+  background-color: #FFB700;
+}
+
+/* COLUMNA DE BENEFICIOS / DATOS DE CONTACTO */
+.contacto-datos {
+  flex: 1;
+  min-width: 260px;
+  background-color: #3A1660;
+  border-radius: 12px;
+  padding: 1.4rem 1.3rem;
+  font-size: 14px;
+}
+
+/* RESPONSIVE: EN COLUMNAS EN MOBILE */
+@media (max-width: 900px) {
+  .form-layout {
+    flex-direction: column;
+  }
+  .form-festeja,
+  .form-contacto,
+  .contacto-datos {
+    max-width: 520px;
+    margin: 0 auto;
+  }
+}
+/* ============================
+   FORMULARIO "FESTEJÁ CON NOSOTROS"
+   ============================ */
+.form-festeja {
+  max-width: 420px;
+  margin: 0 auto 40px;
+  background-color: #3A1660;
+  border-radius: 20px;
+  padding: 20px 18px 24px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5);
+}
+
+/* Títulos dentro del formulario */
+.form-festeja h3 {
+  margin-bottom: 1rem;
+}
+
+/* Labels */
+.form-festeja label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin-bottom: 4px;
+}
+
+/* Campos de texto, email, fecha, select, textarea */
+.form-festeja input[type=text],
+.form-festeja input[type=email],
+.form-festeja input[type=date],
+.form-festeja select,
+.form-festeja textarea {
+  width: 100%;
+  background-color: #2B0A4B;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin-bottom: 14px;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9rem;
+  color: #FFFFFF;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+/* Placeholder clarito */
+.form-festeja input::placeholder,
+.form-festeja textarea::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* Focus: borde amarillo Dino */
+.form-festeja input:focus,
+.form-festeja select:focus,
+.form-festeja textarea:focus {
+  border-color: #FFCC00;
+  box-shadow: 0 0 0 2px rgba(255, 204, 0, 0.35);
+  background-color: #311052;
+}
+
+/* Textarea más alto */
+.form-festeja textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Select con flechita custom para que no se vea "genérico" */
+.form-festeja select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding-right: 38px;
+  background-image: url("data:image/svg+xml,%3Csvg width='14' height='9' viewBox='0 0 14 9' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l6 6 6-6' stroke='%23FFCC00' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 14px 9px;
+}
+
+/* Botón enviar: ya usás .btn-enviar, solo centramos */
+.form-festeja .btn-enviar {
+  display: inline-block;
+  margin-top: 8px;
+}
+
+/* Responsive: un poquito más aire en mobile grande */
+@media (min-width: 768px) {
+  .form-festeja {
+    max-width: 480px;
+    padding: 24px 22px 28px;
+  }
+}
+/* Fix: que los campos no se salgan del contenedor en mobile */
+form input,
+form select,
+form textarea {
+  box-sizing: border-box;
+  width: 100%;
+  display: block;
+}
+
+/* SELECTS de Festejá y Contacto (campo cerrado) */
+#festeja form select,
+#contacto form select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 100%;
+  background-color: #2B0A4B;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+  padding: 10px 12px;
+  padding-right: 36px;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9rem;
+  color: #FFFFFF;
+  cursor: pointer;
+  /* flechita amarilla */
+  background-image: url("data:image/svg+xml,%3Csvg width='14' height='9' viewBox='0 0 14 9' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l6 6 6-6' stroke='%23FFCC00' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 14px 9px;
+}
+
+/* Menú desplegable de opciones (Festejá + Contacto) */
+#festeja form select option,
+#contacto form select option {
+  background-color: #3A1660;
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+/* ===== FAQ (AYUDA) ===== */
+.faq {
+  margin-bottom: 2rem;
+}
+
+.faq h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.faq details {
+  background: rgba(0, 0, 0, 0.25);
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  margin-bottom: 0.6rem;
+}
+
+.faq summary {
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.faq details p {
+  margin-top: 0.4rem;
+  font-size: 0.95rem;
+}
+
+.faq .amarillo-link {
+  color: #FFCC00 !important;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: 0.2s ease-in-out;
+}
+
+.faq .amarillo-link:hover {
+  color: #FFE373 !important;
+}
+
+/* ---------------------------------
+   4) Utilidades / Componentes chicos
+---------------------------------- */
+/* ============================
+   _buttons.scss — Botones
+   ============================ */
+/* Botón volver genérico */
+a.volver {
+  display: inline-block;
+  margin-top: 20px;
+  text-decoration: none;
+  color: #FFFFFF;
+  background-color: #FFCC00;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+a.volver:hover {
+  background-color: rgb(204, 163.2, 0);
+  transform: scale(1.05);
+}
+
+/* Botón de enviar formularios */
+.btn-enviar {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 22px;
+  border-radius: 20px;
+  background-color: #FFCC00;
+  color: #2E005C;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  transition: background-color 0.25s ease, transform 0.2s ease;
+}
+
+.btn-enviar:hover {
+  background-color: rgb(214.2, 171.36, 0);
+  transform: translateY(-2px);
+}
+
+/* Botón “Bases y condiciones” */
+.btn-bases {
+  margin-top: auto;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 2px solid #FFEB3B;
+  color: #FFEB3B;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  transition: all 0.25s ease;
+}
+
+.btn-bases:hover {
+  background: #FFEB3B;
+  color: #2E005C;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.35);
+}
+
+/*# sourceMappingURL=style-main.css.map */

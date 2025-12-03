@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cines Dino Mall - Complejos</title>
+
+  <link rel="stylesheet" href="../assets/css/style-main.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="top-bar">
+    <div class="logo-box">
+      <span class="logo-cines">CINES</span>
+      <span class="logo-dino">DINO MALL</span>
+    </div>
+
+    <!-- Botón hamburguesa -->
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Menú principal -->
+    <nav class="main-nav" aria-label="Menú principal">
+      <ul>
+        <li><a href="../index.html">Cartelera</a></li>
+        <li><a href="complejos.html" class="active">Complejos</a></li>
+        <li><a href="promociones.html">Promociones</a></li>
+        <li><a href="festeja.html">Festejá con nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="ayuda.html">Ayuda</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- BANNER -->
+  <section id="banner">
+    <img src="../assets/img/banner.jpg" alt="Película destacada El Amateur">
+    <p>10 DE ABRIL • SOLO EN CINES</p>
+  </section>
+
+  <!-- INTRO COMPLEJOS -->
+  <section id="complejos-intro" class="container">
+    <h1><span class="amarillo">Nuestros</span> Complejos</h1>
+    <p>
+      Cines Dino Mall cuenta con modernos complejos en Córdoba Capital y alrededores. 
+      Podés vivir la magia del cine en sus salas ubicadas en Alto Verde, Ruta 20, 60 Cuadras, 
+      Salsipuedes y Alta Gracia. Todos los complejos están equipados con tecnología de última 
+      generación para brindarte una experiencia de película. Las boleterías abren todos los 
+      días 15 minutos antes de la primera función.
+    </p>
+  </section>
+
+  <!-- GRID COMPLEJOS -->
+  <section id="complejos-grid" class="container">
+    <div class="grid-complejos">
+
+      <article class="complejo-item">
+        <img src="../assets/img/complejo-salsipuedes.jpg" alt="Dino Mall Salsipuedes">
+        <h3>Dino Mall Salsipuedes</h3>
+      </article>
+
+      <article class="complejo-item">
+        <img src="../assets/img/complejo-alta-gracia.jpg" alt="Dino Mall Alta Gracia">
+        <h3>Dino Mall Alta Gracia</h3>
+      </article>
+
+      <article class="complejo-item">
+        <img src="../assets/img/complejo-60-cuadras.jpg" alt="Dino Mall 60 Cuadras">
+        <h3>Dino Mall 60 Cuadras</h3>
+      </article>
+
+      <article class="complejo-item">
+        <img src="../assets/img/complejo-rodriguez-busto.jpg" alt="Dino Mall Rodríguez del Busto">
+        <h3>Dino Mall Rodríguez del Busto</h3>
+      </article>
+
+      <article class="complejo-item">
+        <img src="../assets/img/complejo-ruta-20.jpg" alt="Dino Mall Ruta 20">
+        <h3>Dino Mall Ruta 20</h3>
+      </article>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2025 Cines Dino Mall - Todos los derechos reservados</p>
+</footer>
+
+<!-- JS Hamburguesa -->
+<script>
+  const toggle = document.querySelector(".nav-toggle");
+  const nav = document.querySelector(".main-nav");
+
+  if (toggle && nav) {
+    toggle.addEventListener("click", () => {
+      const isOpen = nav.classList.toggle("is-open");
+      toggle.setAttribute("aria-expanded", isOpen);
+    });
+  }
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,172 @@
+/* ============================
+   HEADER + NAVBAR
+   ============================ */
+
+header {
+  background-color: #2E005C; /* Violeta Dino Mall */
+  padding: 10px 0;
+  font-family: "Poppins", sans-serif; /* tipografía redondita */
+  position: relative;
+  z-index: 1000;
+}
+
+.top-bar {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* LOGO IZQUIERDA */
+.logo-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-cines {
+  background-color: #FFCC00; /* amarillo */
+  color: #2E005C;            /* violeta */
+  font-weight: 800;
+  padding: 6px 10px;
+  border-radius: 4px;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+}
+
+.logo-dino {
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+}
+
+/* MENÚ PRINCIPAL (DESKTOP) */
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;   // BIEN NEGRITA
+  letter-spacing: 0.5px; // opcional para darle aire
+}
+
+
+/* Hover y activo */
+.main-nav a:hover,
+.main-nav a.active {
+  color: #FFEB3B;              /* amarillo Dino Mall */
+  text-decoration: underline;
+}
+
+/* BOTÓN HAMBURGUESA (mobile) */
+.nav-toggle {
+  display: none; // oculto en desktop
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
+  width: 32px;
+  height: 24px;
+  position: relative;
+}
+
+/* Líneas del icono */
+.nav-toggle span {
+  position: absolute;
+  left: 4px;
+  right: 4px;
+  height: 3px;
+  border-radius: 999px;
+  background-color: $blanco; // líneas blancas
+  transition: transform 0.25s ease, opacity 0.25s ease, top 0.25s ease, bottom 0.25s ease;
+}
+
+/* 3 líneas bien separadas */
+.nav-toggle span:nth-child(1) {
+  top: 4px;
+}
+.nav-toggle span:nth-child(2) {
+  top: 10px;
+}
+.nav-toggle span:nth-child(3) {
+  bottom: 4px;
+}
+
+/* Mostrar solo en mobile */
+@media (max-width: 900px) {
+  .nav-toggle {
+    display: inline-block;
+    margin-left: auto;
+  }
+}
+
+
+/* ============================
+   RESPONSIVE NAV
+   ============================ */
+@media (max-width: 768px) {
+  /* Mostrar hamburguesa */
+  .nav-toggle {
+    display: flex;
+  }
+
+  /* Menú oculto por defecto en mobile */
+  .main-nav {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #2E005C;
+    width: 100%;
+    display: none;
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    padding: 0.75rem 1.5rem;
+    gap: 0.5rem;
+  }
+
+  /* Cuando JS agrega .is-open se muestra */
+  .main-nav.is-open {
+    display: block;
+  }
+
+  /* Ajustes extra de top-bar en mobile */
+  header .top-bar {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding: 0.75rem 1rem;
+  }
+
+  header .top-bar .nav-toggle {
+    display: inline-block;
+    margin-left: auto;
+  }
+
+  header .top-bar .main-nav {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  header .top-bar .main-nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+
+  header .top-bar .main-nav a {
+    font-size: 0.9rem;
+  }
+}

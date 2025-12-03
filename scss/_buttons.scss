@@ -1,0 +1,64 @@
+/* ============================
+   _buttons.scss — Botones
+   ============================ */
+
+/* Botón volver genérico */
+a.volver {
+  display: inline-block;
+  margin-top: 20px;
+  text-decoration: none;
+  color: $blanco;
+  background-color: $amarillo-dino;
+  padding: 10px 20px;
+  border-radius: $radius-md;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+a.volver:hover {
+  background-color: darken($amarillo-dino, 10%);
+  transform: scale(1.05);
+}
+
+/* Botón de enviar formularios */
+.btn-enviar {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 22px;
+  border-radius: 20px;
+  background-color: $amarillo-dino;
+  color: $violeta-dino;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  font-family: $font-primary;
+  transition: background-color 0.25s ease, transform 0.2s ease;
+}
+
+.btn-enviar:hover {
+  background-color: darken($amarillo-dino, 8%);
+  transform: translateY(-2px);
+}
+
+/* Botón “Bases y condiciones” */
+.btn-bases {
+  margin-top: auto;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: $radius-pill;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 2px solid $amarillo-claro;
+  color: $amarillo-claro;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  transition: all 0.25s ease;
+}
+
+.btn-bases:hover {
+  background: $amarillo-claro;
+  color: $violeta-dino;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.35);
+}

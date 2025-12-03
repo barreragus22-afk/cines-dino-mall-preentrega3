@@ -1,0 +1,84 @@
+/* ============================
+   _mixins.scss — Mixins globales
+   Cines Dino Mall
+   ============================ */
+
+/* ---------------------------------
+   📱 Mixin para media queries
+   Uso:
+      @include respond(768px) {
+        ...estilos...
+      }
+---------------------------------- */
+
+@mixin respond($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+/* ---------------------------------
+   🔘 Mixin para botón tipo “pill”
+   — Bordes redondeados, uppercase,
+     outline amarillo Dino Mall, hover animado —
+   Uso:
+      @include pill-button(#FFEB3B, #2E005C);
+---------------------------------- */
+
+@mixin pill-button($color, $bg) {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 2px solid $color;
+  background: transparent;
+  color: $color;
+  transition: all 0.25s ease;
+
+  &:hover {
+    background: $color;
+    color: $bg;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.35);
+  }
+}
+
+/* ---------------------------------
+   🎯 Mixin de centrado absoluto
+   Uso:
+      .elemento {
+        @include absolute-center;
+      }
+---------------------------------- */
+
+@mixin absolute-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* ---------------------------------
+   🟪 Mixin de sombra Dino Mall
+   Uso:
+      @include dino-shadow;
+---------------------------------- */
+
+@mixin dino-shadow {
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.6);
+}
+
+/* ---------------------------------
+   🟩 Mixin para fondo blur (vidrio)
+   Uso:
+      @include glass-bg(0.25);
+---------------------------------- */
+
+@mixin glass-bg($opacity: 0.25) {
+  background: rgba(0, 0, 0, $opacity);
+  backdrop-filter: blur(4px);
+}
+
