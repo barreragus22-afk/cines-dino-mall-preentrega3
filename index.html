@@ -21,10 +21,11 @@
   <!-- ENCABEZADO -->
   <header>
     <div class="top-bar">
-      <div class="logo-box">
+      <!-- LOGO: clickeable y vuelve al home -->
+      <a href="./index.html" class="logo-box">
         <span class="logo-cines">CINES</span>
         <span class="logo-dino">DINO MALL</span>
-      </div>
+      </a>
 
       <!-- Botón hamburguesa (mobile) -->
       <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
@@ -67,52 +68,64 @@
 
 
     <!-- CARTELERA ACTUAL (del index viejo) -->
-    <section id="cartelera" class="container">
-      <h1>Cartelera</h1>
+<section id="cartelera" class="container my-4">
+  <h1 class="mb-3">Cartelera</h1>
 
-      <div class="grid-cartelera">
-        <article class="pelicula">
-          <span class="etiqueta-estreno">ESTRENO</span>
-          <img src="assets/img/elamateur.jpg" alt="El Amateur: Operación Venganza">
-          <h3>EL AMATEUR: OPERACIÓN VENGANZA</h3>
-        </article>
+  <div class="row g-4">
+    <div class="col-6 col-md-3">
+      <article class="pelicula h-100">
+        <span class="etiqueta-estreno">ESTRENO</span>
+        <img src="assets/img/elamateur.jpg" alt="El Amateur: Operación Venganza" class="img-fluid">
+        <h3>EL AMATEUR: OPERACIÓN VENGANZA</h3>
+      </article>
+    </div>
 
-        <article class="pelicula">
-          <span class="etiqueta-estreno">ESTRENO</span>
-          <img src="assets/img/minecraft.jpg" alt="Una película de Minecraft">
-          <h3>UNA PELÍCULA DE MINECRAFT</h3>
-        </article>
+    <div class="col-6 col-md-3">
+      <article class="pelicula h-100">
+        <span class="etiqueta-estreno">ESTRENO</span>
+        <img src="assets/img/minecraft.jpg" alt="Una película de Minecraft" class="img-fluid">
+        <h3>UNA PELÍCULA DE MINECRAFT</h3>
+      </article>
+    </div>
 
-        <article class="pelicula">
-          <img src="assets/img/blancanieves.jpg" alt="Blanca Nieves">
-          <h3>BLANCA NIEVES</h3>
-        </article>
+    <div class="col-6 col-md-3">
+      <article class="pelicula h-100">
+        <img src="assets/img/blancanieves.jpg" alt="Blanca Nieves" class="img-fluid">
+        <h3>BLANCA NIEVES</h3>
+      </article>
+    </div>
 
-        <article class="pelicula">
-          <img src="assets/img/rescate.jpg" alt="Rescate Implacable">
-          <h3>RESCATE IMPLACABLE</h3>
-        </article>
-      </div>
-    </section>
+    <div class="col-6 col-md-3">
+      <article class="pelicula h-100">
+        <img src="assets/img/rescate.jpg" alt="Rescate Implacable" class="img-fluid">
+        <h3>RESCATE IMPLACABLE</h3>
+      </article>
+    </div>
+  </div>
+</section>
+
 
     <!-- PRÓXIMOS ESTRENOS (del index viejo) -->
-    <section id="estrenos" class="container">
-      <h2>Próximos estrenos</h2>
+<section id="estrenos" class="container my-4">
+  <h2 class="mb-3">Próximos estrenos</h2>
 
-      <div class="grid-estrenos">
-        <article class="pelicula">
-          <span class="etiqueta-estreno fecha">12 DE ABRIL</span>
-          <img src="assets/img/estreno1.jpg" alt="Pecadores">
-          <h3>PECADORES</h3>
-        </article>
+  <!-- 🔥 Nuevo contenedor CONTROLADO POR NOSOTROS -->
+  <div class="grid-estrenos">
+    <article class="pelicula">
+      <span class="etiqueta-estreno fecha">12 DE ABRIL</span>
+      <img src="assets/img/estreno1.jpg" alt="Pecadores" class="img-fluid">
+      <h3>PECADORES</h3>
+    </article>
 
-        <article class="pelicula">
-          <span class="etiqueta-estreno fecha">20 DE ABRIL</span>
-          <img src="assets/img/estreno2.jpg" alt="Destino final: Lazos de sangre">
-          <h3>DESTINO FINAL: LAZOS DE SANGRE</h3>
-        </article>
-      </div>
-    </section>
+    <article class="pelicula">
+      <span class="etiqueta-estreno fecha">20 DE ABRIL</span>
+      <img src="assets/img/estreno2.jpg" alt="Destino final: Lazos de sangre" class="img-fluid">
+      <h3>DESTINO FINAL: LAZOS DE SANGRE</h3>
+    </article>
+  </div>
+</section>
+
+
   </main>
 
   <!-- PIE DE PÁGINA -->
