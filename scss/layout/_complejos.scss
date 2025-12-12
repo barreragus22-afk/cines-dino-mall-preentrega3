@@ -82,4 +82,14 @@
   }
 }
 
+.select-complejo select {
+  /* estilos que ya tenías… */
+  transition: box-shadow 0.3s ease-out, transform 0.3s ease-out 0.05s;
+}
+
+.select-complejo select:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
 

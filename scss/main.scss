@@ -3,29 +3,21 @@
    Cines Dino Mall
    ============================ */
 
-/* ---------------------------------
-   1) Configuración global
----------------------------------- */
-@import "variables";
-@import "mixins";
+/* 1) Configuración global */
+@import "base/variables";
+@import "base/mixins";
 
-/* ---------------------------------
-   2) Estilos base y estructura
----------------------------------- */
-@import "base";      // body, tipografías, secciones, footer
-@import "layout";    // banners, contenedores globales
+/* 2) Estilos base y estructura */
+@import "base/base";
 
-/* ---------------------------------
-   3) Componentes grandes (secciones)
----------------------------------- */
-@import "header";     // navbar + mobile menu
-@import "cartelera";  // cartelera y estrenos
-@import "complejos";  // complejos
-@import "promos";     // promos y hero de promos
-@import "forms";      // contacto + festejá
-@import "faq";        // ayuda / FAQ
+/* 3) Secciones grandes (layout) */
+@import "layout/header";
+@import "layout/cartelera";
+@import "layout/complejos";
+@import "layout/promos";
+@import "layout/forms";
+@import "layout/faq";
 
-/* ---------------------------------
-   4) Utilidades / Componentes chicos
----------------------------------- */
-@import "buttons";    // botones: volver, bases, enviar
+/* 4) Componentes */
+@import "components/buttons";
+

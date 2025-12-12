@@ -3,9 +3,7 @@
    main.scss — Archivo raíz SASS
    Cines Dino Mall
    ============================ */
-/* ---------------------------------
-   1) Configuración global
----------------------------------- */
+/* 1) Configuración global */
 /* ============================
    _variables.scss — Variables globales
    Proyecto: Cines Dino Mall
@@ -50,9 +48,7 @@
    Uso:
       @include glass-bg(0.25);
 ---------------------------------- */
-/* ---------------------------------
-   2) Estilos base y estructura
----------------------------------- */
+/* 2) Estilos base y estructura */
 /* ============================
    BASE — Estilos globales
    ============================ */
@@ -63,7 +59,7 @@ body {
   font-family: "Nimbus Sans", Arial, sans-serif;
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* Evitar scroll horizontal */
+  overflow-x: hidden;
 }
 
 /* CONTENEDOR PRINCIPAL */
@@ -100,32 +96,40 @@ a.amarillo-link:hover {
   color: #FFE373 !important;
 }
 
-/* ===== BANNER GENÉRICO ===== */
-#banner {
-  overflow: hidden;
-}
-
+/* en _base.scss o _cartelera.scss */
 #banner img {
-  width: 100%;
-  height: auto;
-  display: block;
-  max-width: 100%;
+  animation: fade-in-banner 0.8s ease-out;
 }
 
-/* ---------------------------------
-   3) Componentes grandes (secciones)
----------------------------------- */
+@keyframes fade-in-banner {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.promo-item, .pelicula {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  border-radius: 16px;
+}
+
+/* 3) Secciones grandes (layout) */
 /* ============================
    HEADER + NAVBAR
    ============================ */
+/* HEADER GENERAL */
 header {
-  background-color: #2E005C; /* Violeta Dino Mall */
+  background-color: #2E005C;
   padding: 10px 0;
-  font-family: "Poppins", sans-serif; /* tipografía redondita */
+  font-family: "Poppins", sans-serif;
   position: relative;
   z-index: 1000;
 }
 
+/* BARRA SUPERIOR */
 .top-bar {
   max-width: 1100px;
   margin: 0 auto;
@@ -135,16 +139,20 @@ header {
   justify-content: space-between;
 }
 
-/* LOGO IZQUIERDA */
+/* LOGO CLICKEABLE (link, pero conserva la estética) */
 .logo-box {
   display: flex;
   align-items: center;
   gap: 8px;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
 }
 
+/* Bloques de texto del logo */
 .logo-cines {
-  background-color: #FFCC00; /* amarillo */
-  color: #2E005C; /* violeta */
+  background-color: #FFCC00;
+  color: #2E005C;
   font-weight: 800;
   padding: 6px 10px;
   border-radius: 4px;
@@ -316,45 +324,30 @@ header {
     grid-template-columns: 1fr;
   }
 }
-/* GRID ESTRENOS */
-.grid-estrenos {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-}
-
-@media (max-width: 500px) {
-  .grid-estrenos {
-    grid-template-columns: 1fr;
-  }
-}
+/* TARJETAS PELÍCULAS */
 /* TARJETAS PELÍCULAS */
 .pelicula {
   background-color: #3A1660;
   padding: 10px;
-  border-radius: 12px;
   position: relative;
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
-
 .pelicula img {
   width: 100%;
   border-radius: 10px;
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.6);
 }
-
 .pelicula h3 {
-  margin-top: 0.6rem;
+  margin-top: 1.1rem;
   font-size: 0.85rem;
   text-transform: uppercase;
-  letter-spacing: 0em;
+  letter-spacing: 0;
   color: #FFEB3B;
   text-align: left;
   font-weight: 700;
 }
-
 .pelicula:hover {
   transform: translateY(-4px);
   box-shadow: 0 14px 26px rgba(0, 0, 0, 0.7);
@@ -367,9 +360,11 @@ header {
   top: 0;
   background-color: #FFCC00;
   color: #2E005C;
-  padding: 4px 8px;
-  font-size: 12px;
-  font-weight: bold;
+  padding: 5px 10px;
+  font-size: 11px;
+  font-weight: 800; /* 🔥 NEGRITA REAL */
+  letter-spacing: 0px;
+  text-transform: uppercase;
   border-radius: 8px 0 8px 0;
 }
 
@@ -435,6 +430,27 @@ header {
     padding: 14px 26px;
   }
 }
+/* ============================
+   PRÓXIMOS ESTRENOS (definitivo)
+   ============================ */
+#estrenos .grid-estrenos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: flex-start;
+}
+
+#estrenos .pelicula {
+  width: 260px;
+  margin: 0;
+}
+
+#estrenos .pelicula img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
 /* ============================
    COMPLEJOS
    ============================ */
@@ -516,6 +532,16 @@ header {
     height: 220px;
   }
 }
+.select-complejo select {
+  /* estilos que ya tenías… */
+  transition: box-shadow 0.3s ease-out, transform 0.3s ease-out 0.05s;
+}
+
+.select-complejo select:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
 /* ============================
    PROMOCIONES
    ============================ */
@@ -551,7 +577,6 @@ header {
 .promo-item {
   background: rgba(0, 0, 0, 0.35);
   padding: 1.2rem 1rem 1.6rem;
-  border-radius: 18px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -562,7 +587,6 @@ header {
   box-shadow: 0 10px 22px rgba(0, 0, 0, 0.45);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-
 .promo-item img {
   width: 100%;
   height: 260px;
@@ -571,8 +595,6 @@ header {
   border-radius: 12px;
   margin-bottom: 0.9rem;
 }
-
-/* hover */
 .promo-item:hover {
   transform: translateY(-6px);
   box-shadow: 0 16px 30px rgba(0, 0, 0, 0.6);
@@ -650,8 +672,8 @@ header {
     grid-template-columns: 1fr;
   }
 }
-/* PROMO DESTACADA 2x1 */
-.promo-destacada {
+/* ===== HERO PROMO 2x1 ===== */
+#promos .promo-destacada {
   position: relative;
   max-width: 1100px;
   margin: 24px auto 40px;
@@ -659,196 +681,209 @@ header {
   overflow: hidden;
 }
 
-.promo-destacada img {
+#promos .promo-destacada img {
   display: block;
   width: 100%;
   border-radius: inherit;
 }
 
-/* Texto por encima de la imagen (desktop) */
-.promo-destacada-texto {
+/* Capa oscura solo para desktop */
+#promos .promo-destacada::before {
+  content: "";
   position: absolute;
   inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 1.5rem;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 45%, rgba(0, 0, 0, 0) 80%);
+}
+
+/* Texto encima de la imagen (desktop) */
+#promos .promo-destacada-texto {
+  position: absolute;
+  top: 50%;
+  left: clamp(1.5rem, 5vw, 3rem);
+  transform: translateY(-50%);
   color: #ffffff;
+  max-width: 360px;
+  text-align: left;
 }
 
-.promo-destacada-texto h2 {
-  font-size: 2.2rem;
+#promos .promo-destacada-texto h2 {
+  font-size: clamp(2rem, 3vw, 2.6rem);
   font-weight: 800;
-  line-height: 1.1;
-  color: #ffeb3b;
-  margin-bottom: 0.75rem;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.5rem;
+  color: #FFCC00;
 }
 
-.promo-destacada-texto p {
-  max-width: 480px;
+#promos .promo-destacada-texto p {
   font-size: 0.95rem;
+  line-height: 1.5;
 }
 
-/* 📱 MOBILE: que NO quede superpuesto raro */
-@media (max-width: 600px) {
-  .promo-destacada {
+/* ===== VERSIÓN MOBILE: texto debajo de la imagen ===== */
+@media (max-width: 768px) {
+  #promos .promo-destacada {
+    max-width: 1100px;
     margin: 16px auto 28px;
   }
-  .promo-destacada-texto {
+  /* sacamos la capa oscura */
+  #promos .promo-destacada::before {
+    display: none;
+  }
+  /* el texto deja de estar superpuesto */
+  #promos .promo-destacada-texto {
     position: static;
+    transform: none;
+    left: auto;
+    top: auto;
+    max-width: 100%;
     padding: 1rem 1.25rem 1.5rem;
-    background: transparent;
+    text-align: left;
+    background: transparent; /* se lee sobre el violeta de la página */
   }
-  .promo-destacada-texto h2 {
+  #promos .promo-destacada-texto h2 {
     font-size: 1.6rem;
+    line-height: 1.2;
   }
-  .promo-destacada-texto p {
+  #promos .promo-destacada-texto p {
     font-size: 0.9rem;
   }
 }
+/* ===== HERO PROMO 2x1 ===== */
+#promos .promo-destacada {
+  position: relative;
+  max-width: 1100px;
+  margin: 24px auto 40px;
+  border-radius: 16px;
+  overflow: hidden;
+  /* ANIMACIÓN DE ENTRADA */
+  opacity: 0;
+  animation: bannerEnter 0.9s ease-out forwards;
+  animation-delay: 0.15s;
+}
+
+#promos .promo-destacada img {
+  display: block;
+  width: 100%;
+  border-radius: inherit;
+}
+
+/* Capa oscura solo para desktop */
+#promos .promo-destacada::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 45%, rgba(0, 0, 0, 0) 80%);
+}
+
+/* Texto encima de la imagen (solo desktop) */
+#promos .promo-destacada-texto {
+  position: absolute;
+  top: 50%;
+  left: clamp(1.5rem, 5vw, 3rem);
+  transform: translateY(-50%);
+  color: #ffffff;
+  max-width: 360px;
+  text-align: left;
+}
+
+#promos .promo-destacada-texto h2 {
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.5rem;
+  color: #FFCC00;
+}
+
+#promos .promo-destacada-texto p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* ===== MOBILE: texto debajo de la imagen ===== */
+@media (max-width: 768px) {
+  #promos .promo-destacada {
+    max-width: 1100px;
+    margin: 16px auto 28px;
+  }
+  #promos .promo-destacada::before {
+    display: none; /* sin capa oscura */
+  }
+  #promos .promo-destacada-texto {
+    position: static; /* deja de estar encima */
+    transform: none;
+    left: auto;
+    top: auto;
+    max-width: 100%;
+    padding: 1rem 1.25rem 1.5rem;
+    text-align: left;
+    background: transparent; /* se lee sobre el violeta */
+  }
+  #promos .promo-destacada-texto h2 {
+    font-size: 1.6rem;
+    line-height: 1.2;
+  }
+  #promos .promo-destacada-texto p {
+    font-size: 0.9rem;
+  }
+}
+@keyframes bannerEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* ============================
+   FORMULARIOS GENERALES
+   (Contacto + Festejá)
+   ============================ */
 .form-page {
   max-width: 1100px;
-  margin: 40px auto;
+  margin: 3rem auto;
+  padding: 2.5rem 1.5rem;
   text-align: center;
-  padding: 2rem 0;
 }
-.form-page h1, .form-page h2 {
+.form-page h1,
+.form-page h2 {
   margin-bottom: 0.75rem;
   font-weight: 700;
 }
 .form-page .form-lead {
   margin-bottom: 2rem;
   font-size: 1rem;
+  line-height: 1.5;
 }
 
-/* CONTENEDOR FLEX */
+/* FORM + COLUMNA DERECHA */
 .form-layout {
   display: flex;
-  gap: 40px;
+  gap: 2.5rem;
   align-items: flex-start;
   justify-content: center;
   flex-wrap: wrap;
   text-align: left;
 }
 
-/* FORMULARIO */
-.form-festeja, .form-contacto {
-  flex: 2;
-  min-width: 300px;
-  background: rgba(0, 0, 0, 0.25);
-  padding: 1.8rem;
-  border-radius: 12px;
-}
-
-.form-festeja label,
-.form-contacto label {
-  display: block;
-  margin-top: 1rem;
-  margin-bottom: 6px;
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.form-festeja input,
-.form-festeja select,
-.form-festeja textarea,
-.form-contacto input,
-.form-contacto select,
-.form-contacto textarea {
-  width: 100%;
-  padding: 10px 14px;
-  border-radius: 6px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  background: rgba(0, 0, 0, 0.15);
-  color: white;
-  font-family: "Poppins";
-  font-size: 14px;
-}
-
-textarea {
-  height: 120px;
-  resize: vertical;
-}
-
-.btn-enviar {
-  margin-top: 20px;
-  padding: 12px 26px;
-  border-radius: 20px;
-  background-color: #FFCC00;
-  color: #2E005C;
-  border: none;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.btn-enviar:hover {
-  background-color: #FFB700;
-}
-
-/* COLUMNA DERECHA */
-.contacto-datos {
-  flex: 1;
-  min-width: 250px;
-  background-color: #3A1660;
-  padding: 1rem;
-  border-radius: 12px;
-  font-size: 14px;
-}
-
-/* === AJUSTE GENERAL FORMULARIOS === */
-.form-page {
-  max-width: 1000px;
-  margin: 40px auto;
-  text-align: center;
-  padding: 2.5rem 1.5rem;
-}
-
-.form-page h1,
-.form-page h2 {
-  margin-bottom: 0.75rem;
-  font-weight: 700;
-}
-
-.form-lead {
-  margin-bottom: 2rem;
-  font-size: 1rem;
-}
-
-/* CONTENEDOR FLEX: FORM + ASIDE */
-.form-layout {
-  display: flex;
-  gap: 32px;
-  align-items: flex-start;
-  justify-content: center;
-  flex-wrap: wrap;
-  text-align: left;
-}
-
-/* CARD DEL FORMULARIO */
+/* CARD DEL FORMULARIO (Contacto + Festejá) */
 .form-festeja,
 .form-contacto {
   flex: 2;
   min-width: 320px;
   background: rgba(0, 0, 0, 0.25);
-  padding: 1.75rem 1.5rem 2rem;
+  padding: 2rem 1.6rem 2.3rem;
   border-radius: 12px;
 }
-
-/* LABEL + INPUT EN COLUMNA */
 .form-festeja label,
 .form-contacto label {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 4px;
-  margin-bottom: 14px;
-  font-size: 14px;
+  display: block;
+  font-size: 0.9rem;
   font-weight: 600;
+  margin-bottom: 0.9rem;
+  color: #ffffff;
 }
-
-/* CAMPOS DE TEXTO */
 .form-festeja input,
 .form-festeja select,
 .form-festeja textarea,
@@ -856,48 +891,66 @@ textarea {
 .form-contacto select,
 .form-contacto textarea {
   width: 100%;
-  padding: 10px 14px;
-  border-radius: 6px;
+  padding: 0.9rem 1rem;
+  margin-bottom: 1.2rem;
+  border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.25);
   background-color: rgba(0, 0, 0, 0.2);
   color: #ffffff;
   font-family: "Poppins", sans-serif;
-  font-size: 14px;
+  font-size: 0.95rem;
+  box-sizing: border-box;
 }
-
 .form-festeja textarea,
 .form-contacto textarea {
-  min-height: 110px;
+  min-height: 120px;
   resize: vertical;
 }
-
-/* BOTÓN */
-.btn-enviar {
-  margin-top: 18px;
-  padding: 10px 24px;
+.form-festeja .btn-enviar,
+.form-contacto .btn-enviar {
+  margin-top: 1.6rem;
+  padding: 0.75rem 1.6rem;
   border-radius: 20px;
-  background-color: #FFCC00;
-  color: #2E005C;
+  background-color: #ffcc00;
+  color: #2e005c;
   font-weight: 700;
   border: none;
   cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.2s ease;
+}
+.form-festeja .btn-enviar:hover,
+.form-contacto .btn-enviar:hover {
+  background-color: #ffb700;
+  transform: translateY(-2px);
 }
 
-.btn-enviar:hover {
-  background-color: #FFB700;
-}
-
-/* COLUMNA DE BENEFICIOS / DATOS DE CONTACTO */
+/* COLUMNA DERECHA (texto / datos de contacto) */
 .contacto-datos {
   flex: 1;
   min-width: 260px;
-  background-color: #3A1660;
+  background-color: #3a1660;
   border-radius: 12px;
   padding: 1.4rem 1.3rem;
-  font-size: 14px;
+  font-size: 0.9rem;
 }
 
-/* RESPONSIVE: EN COLUMNAS EN MOBILE */
+/* SELECTS personalizados de Festejá + Contacto */
+#festeja form select,
+#contacto form select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #2b0a4b;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+  padding-right: 2.2rem;
+  background-image: url("data:image/svg+xml,%3Csvg width='14' height='9' viewBox='0 0 14 9' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l6 6 6-6' stroke='%23FFCC00' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 14px 9px;
+}
+
+/* RESPONSIVE */
 @media (max-width: 900px) {
   .form-layout {
     flex-direction: column;
@@ -909,135 +962,34 @@ textarea {
     margin: 0 auto;
   }
 }
-/* ============================
-   FORMULARIO "FESTEJÁ CON NOSOTROS"
-   ============================ */
-.form-festeja {
-  max-width: 420px;
-  margin: 0 auto 40px;
-  background-color: #3A1660;
-  border-radius: 20px;
-  padding: 20px 18px 24px;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5);
-}
-
-/* Títulos dentro del formulario */
-.form-festeja h3 {
-  margin-bottom: 1rem;
-}
-
-/* Labels */
-.form-festeja label {
-  display: block;
-  font-size: 0.8rem;
+/* === ESPACIADO CLARO ENTRE TEXTO DEL LABEL Y CAMPO === */
+.form-festeja label,
+.form-contacto label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.9rem;
   font-weight: 600;
-  color: #FFFFFF;
-  margin-bottom: 4px;
+  margin-bottom: 1.2rem;
 }
 
-/* Campos de texto, email, fecha, select, textarea */
-.form-festeja input[type=text],
-.form-festeja input[type=email],
-.form-festeja input[type=date],
+/* Campos del form */
+.form-festeja input,
 .form-festeja select,
-.form-festeja textarea {
+.form-festeja textarea,
+.form-contacto input,
+.form-contacto select,
+.form-contacto textarea {
   width: 100%;
-  background-color: #2B0A4B;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 10px;
-  padding: 10px 12px;
-  margin-bottom: 14px;
+  padding: 0.9rem 1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #ffffff;
   font-family: "Poppins", sans-serif;
-  font-size: 0.9rem;
-  color: #FFFFFF;
-  outline: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-}
-
-/* Placeholder clarito */
-.form-festeja input::placeholder,
-.form-festeja textarea::placeholder {
-  color: rgba(255, 255, 255, 0.45);
-}
-
-/* Focus: borde amarillo Dino */
-.form-festeja input:focus,
-.form-festeja select:focus,
-.form-festeja textarea:focus {
-  border-color: #FFCC00;
-  box-shadow: 0 0 0 2px rgba(255, 204, 0, 0.35);
-  background-color: #311052;
-}
-
-/* Textarea más alto */
-.form-festeja textarea {
-  min-height: 120px;
-  resize: vertical;
-}
-
-/* Select con flechita custom para que no se vea "genérico" */
-.form-festeja select {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  padding-right: 38px;
-  background-image: url("data:image/svg+xml,%3Csvg width='14' height='9' viewBox='0 0 14 9' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l6 6 6-6' stroke='%23FFCC00' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 14px center;
-  background-size: 14px 9px;
-}
-
-/* Botón enviar: ya usás .btn-enviar, solo centramos */
-.form-festeja .btn-enviar {
-  display: inline-block;
-  margin-top: 8px;
-}
-
-/* Responsive: un poquito más aire en mobile grande */
-@media (min-width: 768px) {
-  .form-festeja {
-    max-width: 480px;
-    padding: 24px 22px 28px;
-  }
-}
-/* Fix: que los campos no se salgan del contenedor en mobile */
-form input,
-form select,
-form textarea {
+  font-size: 0.95rem;
   box-sizing: border-box;
-  width: 100%;
-  display: block;
-}
-
-/* SELECTS de Festejá y Contacto (campo cerrado) */
-#festeja form select,
-#contacto form select {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  width: 100%;
-  background-color: #2B0A4B;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 10px;
-  padding: 10px 12px;
-  padding-right: 36px;
-  font-family: "Poppins", sans-serif;
-  font-size: 0.9rem;
-  color: #FFFFFF;
-  cursor: pointer;
-  /* flechita amarilla */
-  background-image: url("data:image/svg+xml,%3Csvg width='14' height='9' viewBox='0 0 14 9' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l6 6 6-6' stroke='%23FFCC00' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 14px center;
-  background-size: 14px 9px;
-}
-
-/* Menú desplegable de opciones (Festejá + Contacto) */
-#festeja form select option,
-#contacto form select option {
-  background-color: #3A1660;
-  color: #FFFFFF;
-  font-weight: 600;
 }
 
 /* ===== FAQ (AYUDA) ===== */
@@ -1079,9 +1031,7 @@ form textarea {
   color: #FFE373 !important;
 }
 
-/* ---------------------------------
-   4) Utilidades / Componentes chicos
----------------------------------- */
+/* 4) Componentes */
 /* ============================
    _buttons.scss — Botones
    ============================ */
@@ -1147,4 +1097,3 @@ a.volver:hover {
 }
 
 /*# sourceMappingURL=style-main.css.map */
-// ajuste menor

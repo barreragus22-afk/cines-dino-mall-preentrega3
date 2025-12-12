@@ -1,0 +1,160 @@
+/* ============================
+   FORMULARIOS GENERALES
+   (Contacto + Festejá)
+   ============================ */
+
+.form-page {
+  max-width: 1100px;
+  margin: 3rem auto;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+
+  h1,
+  h2 {
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+  }
+
+  .form-lead {
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+}
+
+/* FORM + COLUMNA DERECHA */
+.form-layout {
+  display: flex;
+  gap: 2.5rem;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: left;
+}
+
+/* CARD DEL FORMULARIO (Contacto + Festejá) */
+.form-festeja,
+.form-contacto {
+  flex: 2;
+  min-width: 320px;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 2rem 1.6rem 2.3rem;
+  border-radius: 12px;
+
+  label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.9rem;   // espacio entre texto y campo
+    color: #ffffff;
+  }
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    margin-bottom: 1.2rem;   // espacio entre campo y siguiente label
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background-color: rgba(0, 0, 0, 0.2);
+    color: #ffffff;
+    font-family: "Poppins", sans-serif;
+    font-size: 0.95rem;
+    box-sizing: border-box;
+  }
+
+  textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+
+  .btn-enviar {
+    margin-top: 1.6rem;
+    padding: 0.75rem 1.6rem;
+    border-radius: 20px;
+    background-color: #ffcc00;
+    color: #2e005c;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.25s ease, transform 0.2s ease;
+  }
+
+  .btn-enviar:hover {
+    background-color: #ffb700;
+    transform: translateY(-2px);
+  }
+}
+
+/* COLUMNA DERECHA (texto / datos de contacto) */
+.contacto-datos {
+  flex: 1;
+  min-width: 260px;
+  background-color: #3a1660;
+  border-radius: 12px;
+  padding: 1.4rem 1.3rem;
+  font-size: 0.9rem;
+}
+
+/* SELECTS personalizados de Festejá + Contacto */
+#festeja form select,
+#contacto form select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background-color: #2b0a4b;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+  padding-right: 2.2rem;
+
+  background-image: url("data:image/svg+xml,%3Csvg width='14' height='9' viewBox='0 0 14 9' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l6 6 6-6' stroke='%23FFCC00' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 14px 9px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .form-layout {
+    flex-direction: column;
+  }
+
+  .form-festeja,
+  .form-contacto,
+  .contacto-datos {
+    max-width: 520px;
+    margin: 0 auto;
+  }
+}
+
+/* === ESPACIADO CLARO ENTRE TEXTO DEL LABEL Y CAMPO === */
+.form-festeja label,
+.form-contacto label {
+  display: flex;
+  flex-direction: column;     // texto arriba, campo abajo
+  align-items: flex-start;
+  gap: 0.5rem;                // 🟡 espacio entre "Email" y el input
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;      // espacio entre cada bloque de campo
+}
+
+/* Campos del form */
+.form-festeja input,
+.form-festeja select,
+.form-festeja textarea,
+.form-contacto input,
+.form-contacto select,
+.form-contacto textarea {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.95rem;
+  box-sizing: border-box;
+}
