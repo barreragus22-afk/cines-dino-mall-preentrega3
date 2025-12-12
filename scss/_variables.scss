@@ -3,6 +3,15 @@
    Proyecto: Cines Dino Mall
    ============================ */
 
+   // PALETA EN MAP
+$palette: (
+  violeta-bg: #4A007E,
+  violeta-header: #2E005C,
+  amarillo: #FFCC00,
+  blanco: #FFFFFF
+);
+
+
 /* Colores principales */
 $violeta-dino:   #2E005C;   // Header, nav, footer
 $violeta-fondo:  #4A007E;   // Fondo general
@@ -31,3 +40,10 @@ $radius-md: 10px;
 $radius-lg: 14px;
 $radius-xl: 18px;
 $radius-pill: 999px;
+
+$colors: (
+  primary: #4B0082,
+  secondary: #FFCC00,
+  bg: #2E005C,
+  text-light: #ffffff
+);

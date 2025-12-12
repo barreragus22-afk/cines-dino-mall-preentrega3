@@ -4,13 +4,14 @@
 
 /* BODY */
 body {
-  background-color: #4A007E;
-  color: #FFFFFF;
+  background-color: map-get($palette, violeta-bg);
+  color: map-get($palette, blanco);
   font-family: "Nimbus Sans", Arial, sans-serif;
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* Evitar scroll horizontal */
+  overflow-x: hidden;
 }
+
 
 /* CONTENEDOR PRINCIPAL */
 main {
@@ -44,3 +45,28 @@ a.amarillo-link {
 a.amarillo-link:hover {
   color: #FFE373 !important;
 }
+
+/* en _base.scss o _cartelera.scss */
+
+#banner img {
+  animation: fade-in-banner 0.8s ease-out;
+}
+
+@keyframes fade-in-banner {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+%card-shadow {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+  border-radius: 16px;
+}
+
+
+
