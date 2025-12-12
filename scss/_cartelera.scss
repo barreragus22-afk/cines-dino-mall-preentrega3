@@ -42,50 +42,38 @@
   }
 }
 
-/* GRID ESTRENOS */
-.grid-estrenos {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-}
-
-@media (max-width: 500px) {
-  .grid-estrenos {
-    grid-template-columns: 1fr;
-  }
-}
 
 /* TARJETAS PELÍCULAS */
+/* TARJETAS PELÍCULAS */
 .pelicula {
+  @extend %card-shadow;
   background-color: #3A1660;
   padding: 10px;
-  border-radius: 12px;
   position: relative;
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 
-.pelicula img {
-  width: 100%;
-  border-radius: 10px;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.6);
-}
+  img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.6);
+  }
 
-.pelicula h3 {
-  margin-top: 0.6rem;
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.00em;
-  color: #FFEB3B;
-  text-align: left;
-  font-weight: 700;  // ← NEGRITA COMO “ESTRENOS”
+  h3 {
+    margin-top: 1.1rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    color: #FFEB3B;
+    text-align: left;
+    font-weight: 700;
+  }
 
-}
-
-.pelicula:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 26px rgba(0, 0, 0, 0.7);
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 26px rgba(0, 0, 0, 0.7);
+  }
 }
 
 /* Etiquetas de estreno / fecha */
@@ -95,11 +83,16 @@
   top: 0;
   background-color: #FFCC00;
   color: #2E005C;
-  padding: 4px 8px;
-  font-size: 12px;
-  font-weight: bold;
+  padding: 5px 10px;
+  
+  font-size: 11px;
+  font-weight: 800;        /* 🔥 NEGRITA REAL */
+  letter-spacing: 0.0px;
+  text-transform: uppercase;
+
   border-radius: 8px 0 8px 0;
 }
+
 
 .etiqueta-estreno.fecha {
   top: 8px;
@@ -170,4 +163,26 @@
     font-size: 1.05rem;
     padding: 14px 26px;
   }
+}
+
+/* ============================
+   PRÓXIMOS ESTRENOS (definitivo)
+   ============================ */
+
+#estrenos .grid-estrenos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.0rem;           // espacio entre posters
+  justify-content: flex-start;  // todos pegados a la izquierda
+}
+
+#estrenos .pelicula {
+  width: 260px;          //
+  margin: 0;             // sin margen extra lateral
+}
+
+#estrenos .pelicula img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
 }
