@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://barreragus22-afk.github.io/cines-dino-mall-preentrega3/sitemap.xml
